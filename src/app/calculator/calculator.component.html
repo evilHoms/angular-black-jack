@@ -1,0 +1,32 @@
+<div class="calculator-page">
+  <div class="calculator-body">
+    <div class="display">
+      <output>{{ prevValue }}</output>
+      <output>{{ sign }}</output>
+      <output>{{ value }}</output>
+    </div>
+    <div class="buttons">
+      <div class="numbers">
+        <button (click)="handleNumberClick($event)">1</button>
+        <button (click)="handleNumberClick($event)">2</button>
+        <button (click)="handleNumberClick($event)">3</button>
+        <button (click)="handleNumberClick($event)">4</button>
+        <button (click)="handleNumberClick($event)">5</button>
+        <button (click)="handleNumberClick($event)">6</button>
+        <button (click)="handleNumberClick($event)">7</button>
+        <button (click)="handleNumberClick($event)">8</button>
+        <button (click)="handleNumberClick($event)">9</button>
+        <button (click)="handleSignClick($event)">C</button>
+        <button (click)="handleNumberClick($event)">0</button>
+        <button (click)="handleSignClick($event)">&larr;</button>
+      </div>
+      <div class="marks">
+        <button (click)="handleSignClick($event)">+</button>
+        <button (click)="handleSignClick($event)">-</button>
+        <button (click)="handleSignClick($event)">*</button>
+        <button (click)="handleSignClick($event)">/</button>
+        <button (click)="handleSignClick($event)">=</button>
+      </div>
+    </div>
+  </div>
+</div>

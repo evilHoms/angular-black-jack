@@ -1,0 +1,28 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 50px;
+  background-color: var(--color-green);
+
+  .links {
+    a {
+      text-decoration: none;
+      color: var(--color-white);
+      text-transform: uppercase;
+
+      &:hover {
+        color: var(--color-blue);
+      }
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .title {
+    color: var(--color-white);
+  }
+}
