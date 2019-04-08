@@ -1,0 +1,14 @@
+.todo-page {
+  .add-action-btn {
+    padding: 7px 12px;
+    margin-bottom: 10px;
+  }
+
+  .groups {
+    display: flex;
+
+    & > *:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

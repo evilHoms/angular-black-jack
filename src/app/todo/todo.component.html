@@ -1,0 +1,25 @@
+<app-page-content class="todo-page">
+  <button class="add-action-btn" (click)="handleAddBtnClick()">Add Action +</button>
+  <div class="groups">
+    <app-todo-group [groupTitle]="'TODO'">
+      <app-todo-item
+        *ngFor="let item of todoItems"
+        (changeGroup)="handleChangeGroup($event)"
+        (removeItem)="handleRemove($event)"
+        [group]="'todo'"
+        [defaultValue]="item.value"
+        [actionId]="item.actionId">
+      </app-todo-item>
+    </app-todo-group>
+    <app-todo-group [groupTitle]="'DONE'">
+      <app-todo-item
+        *ngFor="let item of doneItems"
+        (changeGroup)="handleChangeGroup($event)"
+        (removeItem)="handleRemove($event)"
+        [group]="'done'"
+        [defaultValue]="item.value"
+        [actionId]="item.actionId">
+      </app-todo-item>
+    </app-todo-group>
+  </div>
+</app-page-content>

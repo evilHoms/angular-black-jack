@@ -1,0 +1,27 @@
+.todo-item {
+  input {
+    padding: 5px 7px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid var(--color-black);
+    outline: none;
+  }
+
+  .remove {
+    padding: 5px;
+    border: 1px solid var(--color-black);
+    border-left: none;
+    border-right: none;
+    background-color: var(--color-white);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .to-other-group {
+    padding: 5px;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white);
+    outline: none;
+    cursor: pointer;
+  }
+}

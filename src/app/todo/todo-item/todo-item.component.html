@@ -1,0 +1,5 @@
+<div class="todo-item">
+  <input type="text" [disabled]="group === 'done'" (input)="handleInput($event)" [value]="currentValue">
+  <button class="remove" (click)="handleRemove()">x</button>
+  <button class="to-other-group" (click)="handleChangeGroup()">{{ group === 'todo' ? '&#8594;' : '&#8592;' }}</button>
+</div>

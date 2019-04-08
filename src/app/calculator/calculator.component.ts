@@ -42,7 +42,9 @@ export class CalculatorComponent implements OnInit {
       this.value = '';
       this.sign = '';
     } else {
-      this.prevValue = this.calculate(this.prevValue, this.value, sign);
+      if (this.value) {
+        this.prevValue = this.calculate(this.prevValue, this.value, sign);
+      }
       this.value = '0';
       this.sign = sign;
     }

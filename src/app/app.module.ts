@@ -7,6 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { BlackJackComponent } from './black-jack/black-jack.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { TodoComponent } from './todo/todo.component';
+import { PageContentComponent } from './page-content/page-content.component';
+import { TodoItemComponent } from './todo/todo-item/todo-item.component';
+import { TodoGroupComponent } from './todo/todo-group/todo-group.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { CalculatorComponent } from './calculator/calculator.component';
     HeaderComponent,
     BlackJackComponent,
     WelcomeComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    TodoComponent,
+    PageContentComponent,
+    TodoItemComponent,
+    TodoGroupComponent
   ],
   imports: [
     BrowserModule,

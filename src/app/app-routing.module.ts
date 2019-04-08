@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BlackJackComponent } from './black-jack/black-jack.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { TodoComponent } from './todo/todo.component';
 
 const routes: Routes = [{
   path: '',
@@ -13,6 +14,9 @@ const routes: Routes = [{
 }, {
   path: 'calculator',
   component: CalculatorComponent,
+}, {
+  path: 'todo',
+  component: TodoComponent,
 }];
 
 @NgModule({
