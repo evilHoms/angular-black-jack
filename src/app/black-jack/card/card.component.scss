@@ -1,5 +1,34 @@
 .black-jack-card {
-  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
   height: 300px;
   border: 1px solid var(--color-black);
+  background-color: var(--color-white);
+
+  &.face-down {
+    background-color: var(--color-green);
+
+    .circle {
+      width: 90px;
+      height: 90px;
+      border: 2px solid var(--color-black);
+      border-radius: 50%;
+    }
+  }
+
+  & > .suit:first-child {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    max-width: 20px;
+  }
+
+  & > .suit:last-child {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    max-width: 20px;
+  }
 }

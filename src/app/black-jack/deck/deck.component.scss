@@ -1,0 +1,11 @@
+.black-jack-deck {
+  position: relative;
+  margin-right: 50px;
+  cursor: pointer;
+
+  & > *:not(:first-child) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

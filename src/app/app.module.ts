@@ -12,6 +12,7 @@ import { PageContentComponent } from './page-content/page-content.component';
 import { TodoItemComponent } from './todo/todo-item/todo-item.component';
 import { TodoGroupComponent } from './todo/todo-group/todo-group.component';
 import { CardComponent } from './black-jack/card/card.component';
+import { DeckComponent } from './black-jack/deck/deck.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CardComponent } from './black-jack/card/card.component';
     PageContentComponent,
     TodoItemComponent,
     TodoGroupComponent,
-    CardComponent
+    CardComponent,
+    DeckComponent
   ],
   imports: [
     BrowserModule,

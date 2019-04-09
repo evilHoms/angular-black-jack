@@ -9,8 +9,9 @@ export class BlackJackComponent implements OnInit {
 
   deck: Array<Object>;
   currentDeck: Array<Object>;
-  suits: Array<String> = ['diamonds', 'hearts', 'crosses', 'spides'];
+  suits: Array<String> = ['diamonds', 'hearts', 'clubs', 'spides'];
   cardValues: Array<String> = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+  isGameRunning: Boolean = false;
 
   constructor() { }
 
@@ -23,7 +24,7 @@ export class BlackJackComponent implements OnInit {
     const cards = [];
     for (let suit = 0; suit < 4; suit ++) {
       for (let card = 0; card < 13; card ++) {
-        cards.push({ suit: this.suits[suit], value: this.cardValues[card] })
+        cards.push({ suit: this.suits[suit], value: this.cardValues[card], isFaceDown: true });
       }
     }
     return cards;
@@ -48,7 +49,9 @@ export class BlackJackComponent implements OnInit {
     return newDeck;
   }
 
-  handleShuffleCards = () => {
+  handleStart = () => {
+    console.log('start');
+    this.isGameRunning = true;
     this.currentDeck = this.shuffleCards(this.currentDeck, 10);
   }
 

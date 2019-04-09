@@ -1,0 +1,7 @@
+<div
+  class="black-jack-deck"
+  [style.width]="200 + cards.length * 2 + 'px'"
+  [style.height]="300 + cards.length * 2 + 'px'"
+  (click)="handleDeckClick()">
+  <app-card *ngFor="let card of cards; let i = index" [style.left]="i * 2 + 'px'" [style.top]="i * 2 + 'px'" [card]="card"></app-card>
+</div>
