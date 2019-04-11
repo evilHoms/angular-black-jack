@@ -1,4 +1,4 @@
-<article [class]="classNames">
+<article [class]="this.card.isFaceDown ? 'black-jack-card face-down' : 'black-jack-card'">
   <div *ngIf="card.isFaceDown" class="circle"></div>
   <img [src]="suitImg" class="suit" *ngIf="!card.isFaceDown" />
   <div *ngIf="!card.isFaceDown">{{ card.value.toUpperCase() }}</div>

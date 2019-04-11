@@ -1,7 +1,19 @@
 .black-jack-deck {
   position: relative;
   margin-right: 50px;
-  cursor: pointer;
+
+  &.one-by-one {
+    display: flex;
+
+    & > *:not(:first-child) {
+      position: relative;
+      margin-left: 20px;
+    }
+  }
+
+  &.is-clickable {
+    cursor: pointer;
+  }
 
   & > *:not(:first-child) {
     position: absolute;

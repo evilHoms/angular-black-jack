@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import classNames from 'classnames';
 import { CardShape } from 'src/app/card-shape';
 
 @Component({
@@ -26,11 +27,9 @@ export class CardComponent implements OnInit {
         this.suitImg = 'https://image.flaticon.com/icons/png/512/24/24155.png';
         break;
       case 'clubs':
-        this.suitImg = 'https://cdn.pixabay.com/photo/2015/05/11/02/25/clover-761861_960_720.png';
+        this.suitImg = 'http://www.spaikort.se/wp-content/uploads/2012/03/klover.png';
         break;
     }
-
-    this.classNames = this.card.isFaceDown ? 'black-jack-card face-down' : 'black-jack-card';
   }
 
 }

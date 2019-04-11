@@ -1,12 +1,30 @@
 <app-page-content class="black-jack">
+  <app-results-popup
+    *ngIf="isGameRunning"
+    (restart)="handleStart()"
+    (exit)="handleExit()"
+    [playerScore]="playerScore"
+    [dealerScore]="dealerScore">
+  </app-results-popup>
   <div class="row">
     <button (click)="handleStart()">{{ isGameRunning ? 'RESTART' : 'START!' }}</button>
   </div>
   <div class="row">
-    <app-deck [cards]="currentDeck"></app-deck>
-    <div class="dealer-cards"></div>
+    <app-deck (click)="handleGetPlayerCard()" [cards]="currentDeck" [isClickable]="isGameRunning && !isResultShown"></app-deck>
+    <app-deck *ngIf="dealerCards" [cards]="dealerCards" oneByOne="true"></app-deck>
+  </div>
+  <div *ngIf="isGameRunning && !isResultShown" class="row">
+    <button (click)="handleGetPlayerCard()" [disabled]="isDealerTurn">
+      Take Card
+    </button>
+    <button (click)="handleEnough()" [disabled]="isDealerTurn">
+      Enough
+    </button>
+    <button (click)="handleOpenUp()" [disabled]="!isDealerTurn">
+      Open Up
+    </button>
   </div>
   <div class="row">
-    <div class="player-cards"></div>
+    <app-deck *ngIf="playerCards" [cards]="playerCards" oneByOne="true"></app-deck>
   </div>
 </app-page-content>
