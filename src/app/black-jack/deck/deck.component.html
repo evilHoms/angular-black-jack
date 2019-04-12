@@ -1,7 +1,7 @@
 <div
   [class]="classNames"
-  [style.width]="200 + cards.length * 2 + 'px'"
-  [style.height]="300 + cards.length * 2 + 'px'">
+  [style.width]="120 + cards.length * 2 + 'px'"
+  [style.height]="160 + cards.length * 2 + 'px'">
   <app-card
     *ngFor="let card of cards; let i = index"
     [style.left]="oneByOne ? 0 : i * 2 + 'px'"

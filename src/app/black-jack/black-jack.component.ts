@@ -15,10 +15,11 @@ export class BlackJackComponent implements OnInit {
   suits: Array<String> = ['diamonds', 'hearts', 'clubs', 'spides'];
   cardValues: Array<String> = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
   isGameRunning: boolean = false;
-  isDealerTurn: boolean = false;
-  isResultShown: boolean = false;
   playerScore: Number = 0;
   dealerScore: Number = 0;
+  result: String = null;
+  playerWins: number = 0;
+  dealerWins: number = 0;
 
   constructor() { }
 
@@ -76,60 +77,63 @@ export class BlackJackComponent implements OnInit {
   }
 
   handleStart = () => {
-    this.isDealerTurn = false;
-    this.isResultShown = false;
     this.isGameRunning = true;
     this.currentDeck = this.shuffleCards(this.deck, 10);
     this.dealerCards = [];
     this.playerCards = [];
+    this.result = null;
 
     this.dealerCards.push(this.getCard(this.currentDeck, true));
-    this.dealerCards.push(this.getCard(this.currentDeck, true));
+    this.dealerCards.push(this.getCard(this.currentDeck));
 
     this.playerCards.push(this.getCard(this.currentDeck));
     this.playerCards.push(this.getCard(this.currentDeck));
 
     this.calculateScore();
+    if (this.playerScore === 21 && this.playerScore === this.dealerScore) {
+      this.result = 'Black Jack!!! Push!';
+    } else if (this.playerScore === 21) {
+      this.result = 'Black Jack!!! You Win!';
+      this.playerWins += 1;
+    }
   }
 
   handleExit = () => {
-    this.isResultShown = false;
     this.isGameRunning = false;
     this.currentDeck = [ ...this.deck ];
     this.playerCards = null;
     this.dealerCards = null;
+    this.result = null;
   }
 
   handleGetPlayerCard = () => {
-    if (this.playerCards && this.currentDeck.length && !this.isResultShown) {
+    if (this.playerCards && this.currentDeck.length && !this.result) {
       this.playerCards.push(this.getCard(this.currentDeck));
       this.calculateScore();
       if (this.playerScore > 21) {
-        console.log('You loose');
-        this.isResultShown = true;
+        this.result = 'Bust! You Loose';
+        this.dealerWins += 1;
       }
     }
   }
 
   handleEnough = () => {
-    this.isDealerTurn = true;
     this.dealerTurn();
-  }
-
-  handleOpenUp = () => {
     this.dealerCards.forEach(card => {
       card.isFaceDown = false;
     })
     if (this.dealerScore > 21) {
-      console.log('You win');
+      this.result = 'You Win';
+      this.playerWins += 1;
     } else if (this.dealerScore === this.playerScore) {
-      console.log('Draw');
+      this.result = 'Push';
     } else if (this.dealerScore > this.playerScore) {
-      console.log('You loose');
+      this.result = 'You Loose';
+      this.dealerWins += 1;
     } else {
-      console.log('You win');
+      this.result = 'You Win';
+      this.playerWins += 1;
     }
-    this.isResultShown = true;
   }
 
   getCard = (deck: Array<CardShape>, isFaceDown: boolean = false) => {

@@ -1,9 +1,33 @@
 .result-popup {
   position: fixed;
+  left: 0;
   right: 0;
-  top: 20%;
+  bottom: 0;
   z-index: 10;
   padding: 20px;
   background-color: var(--color-white);
   border: 1px solid var(--color-black);
+
+  &:hover, &.show-result {
+    .controls {
+      display: flex;
+    }
+  }
+
+  .wins {
+    display: flex;
+    justify-content: center;
+  }
+
+  .results {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .controls {
+    display: none;
+    justify-content: center;
+    margin-top: 10px;
+  }
 }

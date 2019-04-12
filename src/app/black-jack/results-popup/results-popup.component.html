@@ -1,6 +1,12 @@
-<div class="result-popup">
-  <div>Your score: {{ playerScore }}</div>
-  <div>Dealer score: {{ dealerScore }}</div>
-  <button (click)="handleRestart()">Restart</button>
-  <button (click)="handleExit()">Exit</button>
+<div [class]="getClassNames()">
+  <div class="wins">{{ playerWins }} : {{ dealerWins }}</div>
+  <div class="results">
+    <div>Your score: {{ playerScore }}</div>
+    <div *ngIf="!!result">{{ result }}</div>
+    <div>Dealer score: {{ !!result ? dealerScore : '?' }}</div>
+  </div>
+  <div class="controls">
+    <button (click)="handleRestart()">Restart</button>
+    <button (click)="handleExit()">Exit</button>
+  </div>
 </div>
